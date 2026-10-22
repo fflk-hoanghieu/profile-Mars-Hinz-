@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b12">
+
+    <title>Mars Hinz | Vctech</title>
+
+    <meta
+        name="description"
+        content="Profile của Mars Hinz — Vctech. Developer, Discord projects, bot development và website building."
+    >
+
+    <style>
+        :root {
+            --bg: #090910;
+            --bg-secondary: #10101b;
+            --panel: #141421;
+            --panel-hover: #1a1a2b;
+            --purple: #9b7bff;
+            --purple-light: #b8a2ff;
+            --text: #f4f2ff;
+            --muted: #a6a3ba;
+            --border: rgba(183, 159, 255, 0.16);
+            --radius: 18px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 15% 0%,
+                    rgba(119, 82, 230, 0.13),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 100% 45%,
+                    rgba(86, 65, 180, 0.08),
+                    transparent 30%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: rgba(9, 9, 16, 0.86);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 13px;
+
+            background: linear-gradient(
+                135deg,
+                #a78bfa,
+                #6d4aff
+            );
+
+            color: white;
+            font-size: 17px;
+            font-weight: 900;
+
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.24);
+        }
+
+        .brand-name span {
+            color: var(--purple-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .nav-button {
+            border: 1px solid transparent;
+            border-radius: 11px;
+
+            padding: 10px 16px;
+
+            background: transparent;
+            color: var(--muted);
+
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .nav-button:hover,
+        .nav-button.active {
+            background: rgba(155, 123, 255, 0.1);
+            border-color: var(--border);
+            color: var(--purple-light);
+        }
+
+        /* GENERAL */
+
+        main {
+            min-height: calc(100vh - 150px);
+        }
+
+        .page {
+            display: none;
+            padding: 65px 0 85px;
+
+            animation: appear 0.35s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(9px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 7px 12px;
+
+            color: var(--purple-light);
+            background: rgba(155, 123, 255, 0.09);
+
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow-dot {
+            width: 7px;
+            height: 7px;
+
+            background: #a78bfa;
+            border-radius: 50%;
+
+            box-shadow: 0 0 12px rgba(167, 139, 250, 0.8);
+        }
+
+        .section-heading {
+            margin-bottom: 28px;
+        }
+
+        .section-heading h2 {
+            margin-top: 15px;
+
+            font-size: clamp(27px, 4vw, 38px);
+            line-height: 1.25;
+            letter-spacing: -1px;
+        }
+
+        .section-heading p {
+            margin-top: 10px;
+            max-width: 680px;
+
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .purple {
+            color: var(--purple-light);
+        }
+
+        /* HOME HERO */
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            align-items: center;
+            gap: 48px;
+
+            margin-bottom: 65px;
+        }
+
+        .hero h1 {
+            margin: 23px 0 15px;
+
+            font-size: clamp(38px, 6vw, 65px);
+            line-height: 1.12;
+            letter-spacing: -2.5px;
+        }
+
+        .hero h1 .highlight {
+            display: block;
+            color: var(--purple-light);
+        }
+
+        .hero-description {
+            max-width: 610px;
+
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            margin-top: 27px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            padding: 12px 19px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: var(--panel);
+            color: var(--text);
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(183, 159, 255, 0.4);
+            background: var(--panel-hover);
+        }
+
+        .button-primary {
+            background: linear-gradient(
+                135deg,
+                #9b7bff,
+                #704cff
+            );
+
+            border-color: transparent;
+            color: #fff;
+
+            box-shadow: 0 8px 25px rgba(112, 76, 255, 0.2);
+        }
+
+        .button-primary:hover {
+            background: linear-gradient(
+                135deg,
+                #b19aff,
+                #8264ff
+            );
+        }
+
+        /* PROFILE CARD */
+
+        .profile-card {
+            position: relative;
+            overflow: hidden;
+
+            padding: 29px;
+
+            border: 1px solid var(--border);
+            border-radius: 23px;
+
+            background: linear-gradient(
+                145deg,
+                rgba(29, 25, 49, 0.97),
+                rgba(16, 16, 27, 0.97)
+            );
+
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.22);
+        }
+
+        .profile-card::before {
+            content: "";
+
+            position: absolute;
+            top: -100px;
+            right: -80px;
+
+            width: 220px;
+            height: 220px;
+
+            background: rgba(139, 92, 246, 0.15);
+            border-radius: 50%;
+            filter: blur(35px);
+
+            pointer-events: none;
+        }
+
+        .profile-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-avatar {
+            width: 76px;
+            height: 76px;
+
+            display: grid;
+            place-items: center;
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 23px;
+
+            background: linear-gradient(
+                135deg,
+                #9b7bff,
+                #5638bd
+            );
+
+            color: white;
+            font-size: 28px;
+            font-weight: 900;
+
+            box-shadow: 0 12px 30px rgba(112, 76, 255, 0.2);
+        }
+
+        .profile-card h2 {
+            margin-top: 21px;
+            font-size: 25px;
+        }
+
+        .profile-nickname {
+            margin-top: 3px;
+            color: var(--purple-light);
+            font-size: 14px;
+        }
+
+        .profile-divider {
+            height: 1px;
+            margin: 23px 0;
+
+            background: var(--border);
+        }
+
+        .profile-info {
+            display: grid;
+            gap: 16px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+
+            font-size: 13px;
+        }
+
+        .info-label {
+            color: var(--muted);
+        }
+
+        .info-value {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            color: #b7f7cf;
+        }
+
+        .status::before {
+            content: "";
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+            background: #4ade80;
+        }
+
+        /* CODE PANEL */
+
+        .code-panel {
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background: #0d0d16;
+        }
+
+        .code-header {
+            min-height: 49px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+
+            padding: 0 17px;
+
+            background: #141420;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .code-dots span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #514b64;
+        }
+
+        .code-dots span:first-child {
+            background: #ff6b75;
+        }
+
+        .code-dots span:nth-child(2) {
+            background: #ffc766;
+        }
+
+        .code-dots span:nth-child(3) {
+            background: #64d995;
+        }
+
+        .code-filename {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .code-body {
+            padding: 22px;
+            overflow-x: auto;
+        }
+
+        pre,
+        code {
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                "Liberation Mono",
+                monospace;
+        }
+
+        .code-body pre {
+            color: #ded8f5;
+            font-size: 13px;
+            line-height: 1.9;
+            white-space: pre;
+        }
+
+        .code-purple {
+            color: #c4a7ff;
+        }
+
+        .code-green {
+            color: #9de5bd;
+        }
+
+        .code-yellow {
+            color: #f8d68b;
+        }
+
+        .code-muted {
+            color: #827c98;
+        }
+
+        /* HOME CARDS */
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 17px;
+
+            margin-top: 25px;
+        }
+
+        .feature-card {
+            padding: 23px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background: rgba(20, 20, 33, 0.78);
+
+            transition: 0.22s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+
+            background: var(--panel-hover);
+            border-color: rgba(183, 159, 255, 0.35);
+        }
+
+        .feature-icon {
+            width: 43px;
+            height: 43px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 13px;
+
+            background: rgba(155, 123, 255, 0.1);
+
+            font-size: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* PROJECT PAGE */
+
+        .projects-intro {
+            margin-bottom: 35px;
+        }
+
+        .projects-intro h1 {
+            margin-top: 17px;
+
+            font-size: clamp(34px, 5vw, 52px);
+            letter-spacing: -1.8px;
+            line-height: 1.2;
+        }
+
+        .projects-intro p {
+            max-width: 700px;
+            margin-top: 14px;
+
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .project-panel {
+            margin-top: 25px;
+            padding: 25px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background: rgba(20, 20, 33, 0.82);
+        }
+
+        .project-panel h2 {
+            font-size: 22px;
+        }
+
+        .project-panel-description {
+            margin-top: 8px;
+
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .project-tag {
+            display: inline-block;
+
+            margin-top: 15px;
+            margin-right: 6px;
+            padding: 5px 10px;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            background: rgba(155, 123, 255, 0.08);
+            color: var(--purple-light);
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .quote-panel {
+            position: relative;
+
+            margin-top: 30px;
+            padding: 30px;
+
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--purple);
+
+            border-radius: 0 var(--radius) var(--radius) 0;
+
+            background: linear-gradient(
+                100deg,
+                rgba(155, 123, 255, 0.08),
+                rgba(20, 20, 33, 0.5)
+            );
+        }
+
+        .quote-mark {
+            color: var(--purple-light);
+            font-size: 35px;
+            line-height: 1;
+        }
+
+        .quote-panel p {
+            margin-top: 10px;
+
+            color: #e7e2f7;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .quote-school {
+            margin-top: 17px;
+
+            color: var(--purple-light);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* DISCORD PROJECTS */
+
+        .discord-projects {
+            margin-top: 30px;
+            padding: 27px;
+
+            border: 1px solid rgba(155, 123, 255, 0.24);
+            border-radius: 21px;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0%,
+                    rgba(120, 91, 230, 0.12),
+                    transparent 35%
+                ),
+                rgba(18, 18, 30, 0.95);
+        }
+
+        .discord-projects-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .discord-projects h2 {
+            font-size: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .discord-projects-description {
+            margin-top: 8px;
+
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .discord-badge {
+            flex-shrink: 0;
+
+            padding: 7px 11px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background: rgba(155, 123, 255, 0.1);
+            color: var(--purple-light);
+
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .discord-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .discord-card {
+            min-width: 0;
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: 15px;
+
+            background: rgba(9, 9, 16, 0.75);
+
+            transition: 0.2s ease;
+        }
+
+        .discord-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(183, 159, 255, 0.4);
+        }
+
+        .discord-card-content {
+            padding: 18px;
+        }
+
+        .discord-card h3 {
+            margin-bottom: 7px;
+            font-size: 16px;
+        }
+
+        .discord-card p {
+            min-height: 48px;
+
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .mini-code-header {
+            padding: 9px 12px;
+
+            border-bottom: 1px solid var(--border);
+            background: #171624;
+
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .mini-code {
+            min-height: 105px;
+            padding: 13px;
+
+            overflow-x: auto;
+
+            background: #0b0b12;
+        }
+
+        .mini-code pre {
+            color: #d9d3ed;
+            font-size: 11px;
+            line-height: 1.8;
+            white-space: pre;
+        }
+
+        .discord-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            margin-top: 22px;
+            padding-top: 18px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .discord-footer strong {
+            color: var(--purple-light);
+            font-size: 13px;
+        }
+
+        .discord-footer span {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .profile-card {
+                max-width: 560px;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .discord-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .discord-card p {
+                min-height: auto;
+            }
+
+            .mini-code {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .navbar {
+                min-height: 68px;
+                flex-wrap: wrap;
+                padding: 12px 0;
+            }
+
+            .brand {
+                font-size: 19px;
+            }
+
+            .brand-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .nav-links {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-button {
+                padding: 9px 10px;
+                font-size: 13px;
+            }
+
+            .page {
+                padding: 42px 0 60px;
+            }
+
+            .hero {
+                margin-bottom: 45px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .profile-card {
+                padding: 22px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .project-panel,
+            .discord-projects {
+                padding: 19px;
+            }
+
+            .discord-projects-header {
+                flex-direction: column;
+            }
+
+            .quote-panel {
+                padding: 22px;
+            }
+
+            .code-body {
+                padding: 17px;
+            }
+
+            .code-body pre {
+                font-size: 11px;
+            }
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: rgba(9, 9, 16, 0.72);
+        }
+
+        .footer-content {
+            min-height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            padding: 18px 0;
+        }
+
+        .footer-brand {
+            color: var(--purple-light);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: var(--muted);
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container navbar">
+
+            <a class="brand" href="#" onclick="showPage('home'); return false;">
+                <span class="brand-icon">V</span>
+
+                <span class="brand-name">
+                    Vc<span>tech</span>
+                </span>
+            </a>
+
+            <nav class="nav-links" aria-label="Điều hướng chính">
+                <button
+                    class="nav-button active"
+                    id="nav-home"
+                    type="button"
+                    onclick="showPage('home')"
+                >
+                    Trang chủ
+                </button>
+
+                <button
+                    class="nav-button"
+                    id="nav-projects"
+                    type="button"
+                    onclick="showPage('projects')"
+                >
+                    Dự án
+                </button>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- =========================
+             HOME PAGE
+        ========================== -->
+        <section class="page active" id="home">
+
+            <div class="hero">
+
+                <!-- LEFT: INTRODUCTION -->
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        Developer Profile
+                    </div>
+
+                    <h1>
+                        Xin chào, đây là profile của
+                        <span class="highlight">Mars Hinz</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Đây là profile về Mars Hinz — nơi giới thiệu
+                        thông tin cá nhân, định hướng phát triển và
+                        các dự án liên quan đến Công nghệ thông tin,
+                        Discord Bot và Website Building.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <button
+                            class="button button-primary"
+                            type="button"
+                            onclick="showPage('projects')"
+                        >
+                            Xem dự án
+                            <span aria-hidden="true">↗</span>
+                        </button>
+
+                        <a
+                            class="button"
+                            href="https://discord.gg/y5KFbaTh8R"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Discord
+                            <span aria-hidden="true">↗</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: PROFILE CARD -->
+                <aside class="profile-card">
+
+                    <div class="profile-card-content">
+
+                        <div class="profile-avatar">MH</div>
+
+                        <h2>Mars Hinz</h2>
+
+                        <p class="profile-nickname">
+                            Developer · Vctech
+                        </p>
+
+                        <div class="profile-divider"></div>
+
+                        <div class="profile-info">
+
+                            <div class="info-item">
+                                <span class="info-label">Tên hiển thị</span>
+                                <span class="info-value">Mars Hinz</span>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-label">Thương hiệu</span>
+                                <span class="info-value">Vctech</span>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-label">Định hướng</span>
+                                <span class="info-value">Development</span>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-label">Trạng thái</span>
+                                <span class="info-value status">Learning & Building</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+            <!-- PROFILE CODE -->
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    Developer Introduction
+                </div>
+
+                <h2>Giới thiệu <span class="purple">bản thân</span></h2>
+
+                <p>
+                    Một vài thông tin cơ bản được trình bày theo phong cách
+                    giao diện lập trình.
+                </p>
+
+            </div>
+
+            <div class="code-panel">
+
+                <div class="code-header">
+
+                    <div class="code-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <span class="code-filename">trong-hieu.js</span>
+
+                </div>
+
+                <div class="code-body">
+<pre><span class="code-purple">const</span> developer = {
+    name: <span class="code-green">"Mars Hinz"</span>,
+    brand: <span class="code-green">"Vctech"</span>,
+    role: <span class="code-green">"Developer"</span>,
+
+    interests: [
+        <span class="code-green">"Information Technology"</span>,
+        <span class="code-green">"Discord Bot Development"</span>,
+        <span class="code-green">"Website Building"</span>,
+        <span class="code-green">"Programming"</span>
+    ],
+
+    mindset: <span class="code-green">"Learn, Practice, Improve"</span>
+};
+
+<span class="code-muted">// Keep learning. Keep building.</span>
+<span class="code-purple">export default</span> developer;</pre>
+                </div>
+
+            </div>
+
+            <!-- SKILLS / INTERESTS -->
+            <div class="section-heading" style="margin-top: 55px;">
+
+                <div class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    Focus Areas
+                </div>
+
+                <h2>Những lĩnh vực <span class="purple">quan tâm</span></h2>
+
+                <p>
+                    Các lĩnh vực hướng đến trong quá trình học hỏi,
+                    thực hành và phát triển dự án.
+                </p>
+
+            </div>
+
+            <div class="cards-grid">
+
+                <article class="feature-card">
+                    <div class="feature-icon">⌘</div>
+
+                    <h3>Web Development</h3>
+
+                    <p>
+                        Xây dựng giao diện website, thiết kế bố cục
+                        và tìm hiểu các công nghệ web.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">⌁</div>
+
+                    <h3>Discord Projects</h3>
+
+                    <p>
+                        Phát triển máy chủ Discord, tổ chức kênh,
+                        phân quyền và xây dựng hệ thống cộng đồng.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">&lt;/&gt;</div>
+
+                    <h3>Bot Development</h3>
+
+                    <p>
+                        Tìm hiểu cách tạo bot, xây dựng lệnh,
+                        xử lý sự kiện và phát triển tính năng.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">✦</div>
+
+                    <h3>Learning & Building</h3>
+
+                    <p>
+                        Học kiến thức mới, thực hành thường xuyên
+                        và cải thiện kỹ năng qua từng dự án.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS PAGE
+        ========================== -->
+        <section class="page" id="projects">
+
+            <div class="projects-intro">
+
+                <div class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    Projects & Development
+                </div>
+
+                <h1>
+                    Dự án <span class="purple">của tôi</span>
+                </h1>
+
+                <p>
+                    Tổng hợp các nội dung liên quan đến Discord Server,
+                    Discord Bot, Website Building và hành trình tìm hiểu
+                    Công nghệ thông tin.
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 1 -->
+            <article class="project-panel">
+
+                <h2>
+                    <span class="purple">01.</span>
+                    Developer Profile
+                </h2>
+
+                <p class="project-panel-description">
+                    Website giới thiệu profile Mars Hinz, sử dụng HTML,
+                    CSS và JavaScript để tạo giao diện hiện đại,
+                    tương thích với máy tính và điện thoại.
+                </p>
+
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Responsive Design</span>
+
+            </article>
+
+
+            <!-- PROJECT 2: DISCORD -->
+            <section class="discord-projects">
+
+                <div class="discord-projects-header">
+
+                    <div>
+                        <h2>
+                            <span class="purple">02.</span>
+                            Dự án Discord
+                        </h2>
+
+                        <p class="discord-projects-description">
+                            Luôn phát triển server, bot and website building.
+                            Tập trung vào xây dựng, cải tiến và mở rộng
+                            các dự án công nghệ.
+                        </p>
+                    </div>
+
+                    <span class="discord-badge">
+                        DISCORD PROJECTS
+                    </span>
+
+                </div>
+
+
+                <div class="discord-grid">
+
+                    <!-- DISCORD SERVER -->
+                    <article class="discord-card">
+
+                        <div class="discord-card-content">
+
+                            <h3>Discord Server</h3>
+
+                            <p>
+                                Xây dựng server, thiết kế kênh,
+                                phân quyền thành viên và phát triển
+                                cộng đồng.
+                            </p>
+
+                            <span class="project-tag">Server Setup</span>
+                            <span class="project-tag">Management</span>
+
+                        </div>
+
+                        <div class="mini-code-header">
+                            server-config.js
+                        </div>
+
+                        <div class="mini-code">
+<pre><span class="code-purple">const</span> server = {
+  name: <span class="code-green">"Vctech"</span>,
+  channels: <span class="code-yellow">true</span>,
+  roles: <span class="code-yellow">true</span>,
+  community: <span class="code-yellow">true</span>
+};</pre>
+                        </div>
+
+                    </article>
+
+
+                    <!-- DISCORD BOT -->
+                    <article class="discord-card">
+
+                        <div class="discord-card-content">
+
+                            <h3>Discord Bot</h3>
+
+                            <p>
+                                Phát triển bot Discord, thiết kế lệnh,
+                                tự động hóa tác vụ và bổ sung
+                                tính năng quản lý server.
+                            </p>
+
+                            <span class="project-tag">Bot</span>
+                            <span class="project-tag">Commands</span>
+
+                        </div>
+
+                        <div class="mini-code-header">
+                            bot-example.js
+                        </div>
+
+                        <div class="mini-code">
+<pre><span class="code-purple">const</span> bot = {
+  name: <span class="code-green">"Vctech Bot"</span>,
+  commands: [
+    <span class="code-green">"/help"</span>,
+    <span class="code-green">"/info"</span>,
+    <span class="code-green">"/ping"</span>
+  ]
+};</pre>
+                        </div>
+
+                    </article>
+
+
+                    <!-- WEBSITE BUILDING -->
+                    <article class="discord-card">
+
+                        <div class="discord-card-content">
+
+                            <h3>Website Building</h3>
+
+                            <p>
+                                Thiết kế và xây dựng website giới thiệu,
+                                trang profile và các giao diện
+                                phục vụ dự án.
+                            </p>
+
+                            <span class="project-tag">Website</span>
+                            <span class="project-tag">UI Design</span>
+
+                        </div>
+
+                        <div class="mini-code-header">
+                            website-example.js
+                        </div>
+
+                        <div class="mini-code">
+<pre><span class="code-purple">const</span> website = {
+  title: <span class="code-green">"Vctech"</span>,
+  responsive: <span class="code-yellow">true</span>,
+  design: <span class="code-green">"Dark UI"</span>,
+  status: <span class="code-green">"In Development"</span>
+};</pre>
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="discord-footer">
+
+                    <strong>
+                        Luôn phát triển · Always Building
+                    </strong>
+
+                    <span>
+                        Server Development · Bot Development · Website Building
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- TECHNOLOGY QUOTE -->
+            <div class="quote-panel">
+
+                <div class="quote-mark">“</div>
+
+                <p>
+                    Công nghệ thông tin không phải là một ngành nghề bình thường.
+                    Nó đòi hỏi kiến thức, học hỏi, thực hành và kiên trì
+                    với mã hoá (code).
+                </p>
+
+                <div class="quote-school">
+                    Trường Công nghệ Thông tin Thủ Đức
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container footer-content">
+
+            <div class="footer-brand">
+                Vctech · Mars Hinz
+            </div>
+
+            <div class="footer-text">
+                Built with passion for technology.
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function showPage(pageName) {
+            const pages = document.querySelectorAll(".page");
+
+            pages.forEach(function (page) {
+                page.classList.remove("active");
+            });
+
+            const selectedPage = document.getElementById(pageName);
+
+            if (selectedPage) {
+                selectedPage.classList.add("active");
+            }
+
+            const navButtons = document.querySelectorAll(".nav-button");
+
+            navButtons.forEach(function (button) {
+                button.classList.remove("active");
+            });
+
+            const selectedButton = document.getElementById("nav-" + pageName);
+
+            if (selectedButton) {
+                selectedButton.classList.add("active");
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+</body>
+</html>
